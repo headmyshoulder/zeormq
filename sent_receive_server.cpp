@@ -13,7 +13,7 @@
 
 int main ( int argc , char **argv )
 {
-    std::string str( 100 , 'X' );
+    std::string str( 10 , 'X' );
 
     // Prepare our context and socket
     zmq::context_t context (1);
@@ -31,8 +31,8 @@ int main ( int argc , char **argv )
         // std::this_thread::sleep_for( std::chrono::microseconds( 10 ) );
 
         // Send reply back to client
-        zmq::message_t reply (100);
-        memcpy ((void *) reply.data (), str.c_str() , 100 );
+        zmq::message_t reply (10);
+        memcpy ((void *) reply.data (), str.c_str() , 10 );
         socket.send (reply);
     }
     return 0;
